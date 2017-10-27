@@ -3,7 +3,6 @@
 int main(int argc, char **argv) {
     char *msg;
     size_t len;
-    int i;
     uint8_t result[16];
  
     if (argc < 2) {
@@ -14,14 +13,11 @@ int main(int argc, char **argv) {
  
     len = strlen(msg);
  
-    // benchmark
-    for (i = 0; i < 1000000; i++) {
-        md5((uint8_t*)msg, len, result);
-    }
+    md5((uint8_t*)msg, len, result);
  
     // display result
-    for (i = 0; i < 16; i++)
-        printf("%2.2x", result[i]);
+    for (int i = 0; i < 16; i++)
+        printf("%x", result[i]);
     puts("");
  
     return 0;
